@@ -1,7 +1,7 @@
 public class ArrayDemo {
      //main method
      public static void main(String[]args) {
-          //-- Oa - PRINT 1D STRING --
+          //-- Oa - PRINT 1D ARRAY --
           //intializing ary
           int[] ary;
           ary = new int[11];
@@ -10,9 +10,10 @@ public class ArrayDemo {
                ary[i] = i * 10;
           }
           //running 0a (ary)
+          System.out.println("0a - printing a 1D array");
           printArray(ary);
 
-          //-- Ob - PRINT 2D STRING --
+          //-- Ob - PRINT 2D ARRAY --
           //initializing marr
           int[][] marr;
           marr = new int[4][4];
@@ -23,6 +24,7 @@ public class ArrayDemo {
                }
           }
           //running 0b (marr)
+          System.out.println("\n0b - printing a 2D array");
           printArray(marr);
      }
      //0a - 1D array of ints
@@ -44,8 +46,43 @@ public class ArrayDemo {
           //printing
           System.out.print("{ ");
           for (int i = 0; i < ary.length; i++) {
+               if ( i != 0 ) {
+                    System.out.print("\n"); }
                for (int j = 0; j < (ary[i]).length; j++) {
-                    System.out.print(ary[i][j] + " ");
+                    if ( j < ary.length - 1) {
+                         System.out.print(ary[i][j] + ", ");
+                    }
+                    else {
+                         System.out.print(ary[i][j] + " ");
+                    }
+               }
+          }
+          System.out.print(" }\n");
+     }
+     //1 - calculate and return how many 0s in the parameter
+     public static void countZeros2D(int[][] nums) {
+          int cz = 0;
+          for (int i = 0; i < ary.length; i++) {
+               for (int j = 0; j < (ary[i]).length; j++) {
+                    if ((nums[i][j]) == 0) {
+                         cz += 1;
+                    }
+               }
+          }
+          return cz;
+     }
+     /*2a - modify a given 2D array as follows:
+     replace all values w/ ones, EXCEPT
+     row = column, fill with threes*/
+     public static void fill2D(int[][] vals) {
+          for (int i = 0; i < ary.length; i++) {
+               for (int j = 0; j < (ary[i]).length; j++) {
+                    if ( i == j ) {
+                         nums[i][j] = 3;
+                    }
+                    else {
+                         nums[i][j] = 1;
+                    }
                }
           }
      }
