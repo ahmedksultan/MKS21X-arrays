@@ -60,10 +60,10 @@ public class ArrayDemo {
           System.out.print(" }\n");
      }
      //1 - calculate and return how many 0s in the parameter
-     public static void countZeros2D(int[][] nums) {
+     public static int countZeros2D(int[][] nums) {
           int cz = 0;
-          for (int i = 0; i < ary.length; i++) {
-               for (int j = 0; j < (ary[i]).length; j++) {
+          for (int i = 0; i < nums.length; i++) {
+               for (int j = 0; j < (nums[i]).length; j++) {
                     if ((nums[i][j]) == 0) {
                          cz += 1;
                     }
@@ -71,19 +71,42 @@ public class ArrayDemo {
           }
           return cz;
      }
-     /*2a - modify a given 2D array as follows:
+     /* 2a - modify a given 2D array as follows:
      replace all values w/ ones, EXCEPT
-     row = column, fill with threes*/
+     row = column, fill with threes */
      public static void fill2D(int[][] vals) {
-          for (int i = 0; i < ary.length; i++) {
-               for (int j = 0; j < (ary[i]).length; j++) {
+          for (int i = 0; i < vals.length; i++) {
+               for (int j = 0; j < (vals[i]).length; j++) {
                     if ( i == j ) {
-                         nums[i][j] = 3;
+                         vals[i][j] = 3;
                     }
                     else {
-                         nums[i][j] = 1;
+                         vals[i][j] = 1;
                     }
                }
           }
+     }
+     /* 2b - make a new 2D array w/ same
+     dimensions as a given parameter; fill array w/
+     1s, unless orig array value is negative
+     fill w/ 3s */
+     public static int[][] fill2DCopy(int[][] vals) {
+          int rowL = vals.length;
+          int colL = vals[i].length;
+          //creating a new 2D array
+          int[][] valsCopy;
+          valsCopy = new int[rowL][colL];
+          //filling valsCopy
+          for (int i = 0; i < rowL; i++) {
+               for (int j = 0; j < colL; j++) {
+                    if vals[i][j] < 0 {
+                         valsCopy[i][j] = 3;
+                    }
+                    else {
+                         valsCopy[i][j] = 1;
+                    }
+               }
+          }
+          printArray(int[][] valsCopy);
      }
 }
